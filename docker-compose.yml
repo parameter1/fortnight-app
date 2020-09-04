@@ -12,7 +12,7 @@ services:
       - node_modules:/myapp/node_modules
       - tmp:/myapp/tmp
     restart: on-failure
-    entrypoint: "./node_modules/.bin/ember server --port ${EMBER_SERVE_PORT-8105} --live-reload-port ${EMBER_LIVER_PORT-8106} --proxy ${EMBER_GRAPH_PROXY-http://docker.for.mac.host.internal:8100}"
+    entrypoint: "./node_modules/.bin/ember server --port ${EMBER_SERVE_PORT-8105} --live-reload-port ${EMBER_LIVER_PORT-8106} --proxy ${EMBER_GRAPH_PROXY-http://host.docker.internal:8100}"
 volumes:
   node_modules: {}
   tmp:
