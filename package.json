@@ -15,10 +15,7 @@
     "posttest": "$npm_package_docker_test_down && $npm_package_docker_test_prune",
     "test": "$npm_package_docker_test_test",
     "terminal": "docker exec -it fortnightapp_app_1 /bin/bash",
-    "prestart": "$npm_package_docker_dev_install",
-    "start": "$npm_package_docker_dev_up",
     "start:local": "ember s --proxy http://localhost:8100 --port 8105",
-    "stop": "$npm_package_docker_dev_down",
     "prelint": "$npm_package_docker_test_install",
     "lint": "$npm_package_docker_test_lint",
     "postlint": "$npm_package_docker_test_down",
@@ -31,11 +28,6 @@
     "coverage:run": "./node_modules/.bin/nyc yarn run test:ci"
   },
   "docker": {
-    "dev": {
-      "install": "docker-compose -p fortnightapp run --no-deps --entrypoint yarn app install",
-      "up": "docker-compose -p fortnightapp up",
-      "down": "docker-compose -p fortnightapp down"
-    },
     "test": {
       "install": "docker-compose -p fortnightapptest -f tests/docker-compose.yml run --no-deps --entrypoint yarn test",
       "test": "docker-compose -p fortnightapptest -f tests/docker-compose.yml run test",
