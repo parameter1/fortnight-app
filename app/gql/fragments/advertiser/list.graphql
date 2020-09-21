@@ -5,6 +5,7 @@
 fragment AdvertiserListFragment on Advertiser {
   id
   name
+  externalId
   updatedAt
   createdAt
   ...TimestampableFragment
