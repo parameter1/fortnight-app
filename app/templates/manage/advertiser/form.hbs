@@ -36,6 +36,23 @@
       </div>
     </div>
   </div>
+  <div class="col">
+    <div class="form-group">
+      <label for="externalId">External ID</label>
+      {{input
+        type="text"
+        autocomplete="off"
+        value=form.model.externalId
+        class="form-control"
+        id="externalId"
+        focusOut=(action form.actions.autosave)
+        keyUp=(action form.actions.autosave 750)
+      }}
+      <div class="invalid-feedback">
+        Please provide a valid external ID.
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="row">

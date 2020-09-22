@@ -42,7 +42,7 @@ export default Controller.extend(ActionMixin, {
      *
      * @param {object} fields
      */
-    async update({ id, name, website, notify }) {
+    async update({ id, name, website, externalId, notify }) {
       this.startAction();
       const promises = [];
       ['internal', 'external'].forEach((type) => {
@@ -52,7 +52,7 @@ export default Controller.extend(ActionMixin, {
         const mutation = setContacts;
         promises.push(this.get('apollo').mutate({ mutation, variables }, 'setAdvertiserContacts'));
       });
-      const payload = { name, website };
+      const payload = { name, website, externalId };
       const variables = { input: { id, payload } };
       const mutation = updateAdvertiser;
 
