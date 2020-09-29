@@ -71,6 +71,8 @@ export default Service.extend(ObjectQueryManager, {
     template,
     topic,
     reservePct,
+    uniqueAdvertisers,
+    uniqueCampaigns,
   } = {}) {
     return {
       name,
@@ -78,6 +80,8 @@ export default Service.extend(ObjectQueryManager, {
       templateId: get(template || {}, 'id'),
       topicId: get(topic || {}, 'id'),
       reservePct: reservePct || 0,
+      uniqueAdvertisers,
+      uniqueCampaigns,
     };
   },
 });

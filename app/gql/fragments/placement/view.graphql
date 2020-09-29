@@ -3,6 +3,8 @@ fragment PlacementFragment on Placement {
   name
   updatedAt
   reservePct
+  uniqueAdvertisers
+  uniqueCampaigns
   publisher {
     id
     name

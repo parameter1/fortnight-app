@@ -37,7 +37,7 @@
 <div class="row">
 
   <div class="col-sm-6 col-md-9 col-lg-10">
-    <div class="form-group mb-3 mb-sm-0">
+    <div class="form-group">
       <label for="placement-name">Label</label>
       {{input
         type="text"
@@ -52,7 +52,7 @@
   </div>
 
   <div class="col-sm-6 col-md-3 col-lg-2">
-    <div class="form-group mb-0">
+    <div class="form-group">
       <label for="placement-reserve-pct">Impression Reserve</label>
 
       <div class="input-group">
@@ -76,4 +76,43 @@
     </div>
   </div>
 
+</div>
+
+<div class="row">
+  <div class="col">
+    <strong>Exclusions</strong>
+    <hr class="mt-0">
+  </div>
+</div>
+<div class="row">
+
+  <div class="col-sm-6">
+    <div class="form-group mb-3 mb-sm-0">
+      <label for="placement-unique-advertisers">Same Advertiser</label>
+      {{input
+        type="checkbox"
+        checked=form.model.uniqueAdvertisers
+        class="form-control"
+        id="placement-unique-advertisers"
+        focusIn=(action form.actions.autosave 250)
+        keyUp=(action form.actions.autosave 250)
+      }}
+      <small class="form-text text-muted">When checked, this placement will not return the same advertiser more than once per request.</small>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="form-group mb-3 mb-sm-0">
+      <label for="placement-unique-campaigns">Same Campaign</label>
+      {{input
+        type="checkbox"
+        checked=form.model.uniqueCampaigns
+        class="form-control"
+        id="placement-unique-campaigns"
+        focusIn=(action form.actions.autosave 250)
+        keyUp=(action form.actions.autosave 250)
+      }}
+      <small class="form-text text-muted">When checked, this placement will not return the same campaign more than once per request.</small>
+    </div>
+  </div>
 </div>
