@@ -81,6 +81,7 @@
     "ember-source": "~3.1.0",
     "ember-toggle": "^5.2.4",
     "ember-wormhole": "^0.5.4",
+    "eslint": "4.16.0",
     "eslint-plugin-ember": "^5.0.0",
     "loader.js": "^4.2.3",
     "nyc": "^11.4.1",
