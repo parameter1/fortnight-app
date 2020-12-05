@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group mb-0">
+      <label for="topic-name">Name {{required-field-label}}</label>
+      {{input
+        type="text"
+        required=true
+        value=form.model.name
+        class="form-control"
+        id="email-deployment-name"
+        placeholder="Name"
+        focusOut=(action form.actions.autosave)
+        keyUp=(action form.actions.autosave 750)
+      }}
+      <div class="invalid-feedback">
+        Please provide a deployment name.
+      </div>
+      <small class="form-text text-muted">The email deployment name.</small>
+    </div>
+  </div>
+  <div class="col-md-6">
+  </div>
+</div>
