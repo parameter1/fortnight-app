@@ -73,6 +73,7 @@ form .progress {
 
 // Add depth to dropdowns
 .dropdown-menu {
+  min-width: 13rem;
   box-shadow: $z-depth-2;
   border: none !important;
 }
