@@ -1,0 +1,14 @@
+fragment EmailDeploymentEditFragment on EmailDeployment {
+  id
+  name
+  publisher {
+    id
+    name
+  }
+  updatedAt
+  updatedBy {
+    id
+    givenName
+    familyName
+  }
+}
