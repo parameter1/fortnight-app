@@ -1,0 +1,5 @@
+mutation CreateEmailLineItem($input: CreateEmailLineItemMutationInput!) {
+  createEmailLineItem(input: $input) {
+    id
+  }
+}

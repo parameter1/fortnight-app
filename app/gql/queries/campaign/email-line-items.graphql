@@ -1,0 +1,19 @@
+#import 'fortnight/gql/fragments/campaign/email-line-item'
+
+query CampaignEmailLineItems($campaignId: String!, $pagination: PaginationInput!, $sort: EmailLineItemSortInput!) {
+  campaign(input: { id: $campaignId }) {
+    id
+    emailLineItems(pagination: $pagination, sort: $sort) {
+      totalCount
+      edges {
+        node {
+          ...CampaignEmailLineItemFragment
+        }
+      }
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+    }
+  }
+}

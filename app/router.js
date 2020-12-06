@@ -30,6 +30,10 @@ Router.map(function() {
             this.route('image');
           });
         });
+        this.route('email-line-items', function() {
+          this.route('create');
+          this.route('edit', { path: ':line_item_id' });
+        });
         this.route('notifications');
       });
     });

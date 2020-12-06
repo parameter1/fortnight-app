@@ -1,0 +1,29 @@
+fragment CampaignEmailLineItemFragment on EmailLineItem {
+  id
+  name
+  placement {
+    id
+    name
+    fullName
+  }
+  dates {
+    type
+    start
+    end
+    days
+  }
+  status
+  paused
+  createdBy {
+    id
+    givenName
+    familyName
+  }
+  updatedBy {
+    id
+    givenName
+    familyName
+  }
+  createdAt
+  updatedAt
+}
