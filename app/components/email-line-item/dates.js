@@ -52,7 +52,7 @@ export default Component.extend({
 
   actions: {
     setType(value) {
-      // this.set('type', value);
+      this.set('type', value);
       this.get('on-type-change')(value);
     },
 

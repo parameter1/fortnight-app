@@ -1,0 +1,7 @@
+#import 'fortnight/gql/fragments/campaign/email-line-item'
+
+query EditCampaignEmailLineItem($input: ModelIdInput!) {
+  emailLineItem(input: $input) {
+    ...CampaignEmailLineItemFragment
+  }
+}

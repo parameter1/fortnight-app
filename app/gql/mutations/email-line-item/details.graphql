@@ -1,0 +1,11 @@
+mutation EmailLineItemDetails($input: EmailLineItemDetailsMutationInput!) {
+  emailLineItemDetails(input: $input) {
+    id
+    name
+    placement {
+      id
+      name
+      fullName
+    }
+  }
+}
