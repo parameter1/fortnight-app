@@ -2,7 +2,7 @@ import Route from '@ember/routing/route';
 import RouteQueryManager from "ember-apollo-client/mixins/route-query-manager";
 import { getObservable } from 'ember-apollo-client';
 
-import query from 'fortnight/gql/queries/campaign/email-line-items';
+import query from 'fortnight/gql/queries/campaign/email-line-items/all';
 
 export default Route.extend(RouteQueryManager, {
   queryParams: {
