@@ -13,6 +13,7 @@ fragment CampaignEmailLineItemFragment on EmailLineItem {
     days
   }
   status
+  requires
   paused
   createdBy {
     id
