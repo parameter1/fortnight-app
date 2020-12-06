@@ -5,6 +5,9 @@ fragment EmailDeploymentEditFragment on EmailDeployment {
     id
     name
   }
+  placements(pagination: { first: 1 }, sort: { field: createdAt, order: 1}) {
+    totalCount
+  }
   updatedAt
   updatedBy {
     id

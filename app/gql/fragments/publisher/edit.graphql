@@ -10,4 +10,13 @@ fragment PublisherEditFragment on Publisher {
   logo {
     ...ImageSrcFragment
   }
+  topics(pagination: { first: 1 }, sort: { field: createdAt, order: 1}) {
+    totalCount
+  }
+  placements(pagination: { first: 1 }, sort: { field: createdAt, order: 1}) {
+    totalCount
+  }
+  emailDeployments(pagination: { first: 1 }, sort: { field: createdAt, order: 1}) {
+    totalCount
+  }
 }

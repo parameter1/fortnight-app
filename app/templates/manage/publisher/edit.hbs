@@ -7,9 +7,9 @@
   <div class="card-header">
     <ul class="nav nav-pills card-header-pills" role="tablist">
       <li class="nav-item">{{#link-to "manage.publisher.edit.index" model.id class="nav-link" role="tab"}}Details{{/link-to}}</li>
-      <li class="nav-item">{{#link-to "manage.publisher.edit.topics" model.id class="nav-link" role="tab"}}Topics{{/link-to}}</li>
-      <li class="nav-item">{{#link-to "manage.publisher.edit.placements" model.id class="nav-link" role="tab"}}Placements{{/link-to}}</li>
-      <li class="nav-item">{{#link-to "manage.publisher.edit.email-deployments" model.id class="nav-link" role="tab"}}Email Deployments{{/link-to}}</li>
+      <li class="nav-item">{{#link-to "manage.publisher.edit.topics" model.id class="nav-link" role="tab"}}Topics <span class="badge badge-light">{{model.topics.totalCount}}</span>{{/link-to}}</li>
+      <li class="nav-item">{{#link-to "manage.publisher.edit.placements" model.id class="nav-link" role="tab"}}Placements <span class="badge badge-light">{{model.placements.totalCount}}</span>{{/link-to}}</li>
+      <li class="nav-item">{{#link-to "manage.publisher.edit.email-deployments" model.id class="nav-link" role="tab"}}Email Deployments <span class="badge badge-light">{{model.emailDeployments.totalCount}}</span>{{/link-to}}</li>
     </ul>
   </div>
   {{outlet}}
