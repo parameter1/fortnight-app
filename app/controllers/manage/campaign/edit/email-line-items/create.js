@@ -9,21 +9,65 @@ export default Controller.extend(ActionMixin, {
   apollo: inject(),
 
   actions: {
+    setDateType(type) {
+      this.set('model.dates.type', type);
+      if (type === 'range') this.set('model.dates.days', []);
+      if (type === 'days') {
+        this.set('model.dates.start', undefined);
+        this.set('model.dates.end', undefined);
+      }
+    },
+
+    /**
+     *
+     */
+    setDays(days) {
+      this.set('model.dates.days', days);
+    },
+
+    /**
+     *
+     */
+    setRange({ start, end }) {
+      this.set('model.dates.start', start);
+      this.set('model.dates.end', end);
+    },
+
     /**
      *
      */
     async create() {
       this.startAction();
-      const {
-        name,
-        emailPlacement,
-      } = this.get('model');
-      const campaignId = this.get('campaignId');
-
-      const input = { name, campaignId, emailPlacementId: get(emailPlacement || {}, 'id') };
-      const variables = { input };
-      const refetchQueries = ['CampaignEmailLineItems'];
       try {
+        const {
+          name,
+          placement,
+          dates,
+        } = this.get('model');
+        const campaignId = this.get('campaignId');
+
+        const {
+          type,
+          start,
+          end,
+          days,
+        } = dates;
+
+        if (type === 'range') {
+          if (!start || !end) throw new Error('You must provide a start and end date.');
+        }
+        if (type === 'days') {
+          if (!Array.isArray(days) || !days.length) throw new Error('You must provide an array of days.');
+        }
+
+        const input = {
+          name,
+          campaignId,
+          emailPlacementId: get(placement || {}, 'id'),
+          dates,
+        };
+        const variables = { input };
+        const refetchQueries = ['CampaignEmailLineItems'];
         await this.get('apollo').mutate({ mutation, variables, refetchQueries }, 'createEmailLineItem');
         return this.transitionToRoute('manage.campaign.edit.email-line-items');
       } catch (e) {

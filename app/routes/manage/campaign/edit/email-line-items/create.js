@@ -2,7 +2,9 @@ import Route from '@ember/routing/route';
 
 export default Route.extend({
   model() {
-    return {};
+    return {
+      dates: { type: 'days', days: [] },
+    };
   },
 
   setupController(controller, model) {
