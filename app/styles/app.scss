@@ -15,6 +15,7 @@
 @import "ember-power-calendar";
 .ember-power-calendar {
   @include ember-power-calendar($cell-size: 30px);
+  min-height: 252px;
 }
 
 @import "spin";
