@@ -20,7 +20,7 @@ export default Component.extend({
     return this.get('_days').map(day => day.format(this.get('dateFormat'))).join(' | ');
   }),
 
-  rangeFormatted: computed('_range.start', '_range.end', function() {
+  rangeFormatted: computed('_range.{start,end}', function() {
     const start = this.get('_range.start').format(this.get('dateFormat'));
     const end = this.get('_range.end').format(this.get('dateFormat'));
     return `${start} - ${end}`;
