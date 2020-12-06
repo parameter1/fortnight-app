@@ -1,0 +1,43 @@
+<label for="lineitem-dates">Dates {{required-field-label}}</label>
+{{#form-elements/select
+  id="lineitem-dates"
+  class="custom-select mb-2"
+  name="dates"
+  value=type
+  on-change=(action "setType")
+as |select|
+}}
+  {{#each options as |option|}}
+    {{#select.option value=option.key}}
+      {{option.label}}
+    {{/select.option}}
+  {{/each}}
+{{/form-elements/select}}
+
+<div class="row">
+  <div class="col-xl-6">
+    {{#if showDateRange}}
+      {{email-line-item/dates/calendar-range
+        range=_range
+        onSelect=(action "setRange")
+      }}
+    {{else}}
+      {{email-line-item/dates/calendar-days
+        days=_days
+        onSelect=(action "setDays")
+      }}
+    {{/if}}
+  </div>
+  <div class="col-xl-6 text-left text-xl-right pt-2 pt-xl-0">
+    {{#if showDateRange}}
+      {{#if isRangeSet}}
+        <small class="d-block">Start: {{moment-format _range.start "ddd MMM Do, YYYY"}}</small>
+        <small class="d-block">End: {{moment-format _range.end "ddd MMM Do, YYYY"}}</small>
+      {{/if}}
+    {{else}}
+      {{#each daysSorted as |date|}}
+        <small class="d-block">{{moment-format date "ddd MMM Do, YYYY"}}</small>
+      {{/each}}
+    {{/if}}
+  </div>
+</div>
