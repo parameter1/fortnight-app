@@ -1,0 +1,3 @@
+mutation DeleteEmailPlacement($input: ModelIdInput!) {
+  deleteEmailPlacement(input: $input)
+}

@@ -1,0 +1,7 @@
+#import 'fortnight/gql/fragments/email-placement/edit'
+
+mutation UpdateEmailPlacement($input: UpdateEmailPlacementInput!) {
+  updateEmailPlacement(input: $input) {
+    ...EmailPlacementEditFragment
+  }
+}

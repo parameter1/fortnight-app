@@ -1,0 +1,7 @@
+#import 'fortnight/gql/fragments/email-placement/edit'
+
+query EditEmailPlacement($input: ModelIdInput!) {
+  emailPlacement(input: $input) {
+    ...EmailPlacementEditFragment
+  }
+}

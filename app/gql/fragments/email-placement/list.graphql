@@ -4,6 +4,10 @@ fragment EmailPlacementListFragment on EmailPlacement {
   emailDeployment {
     id
     name
+    publisher {
+      id
+      name
+    }
   }
   createdBy {
     id
