@@ -1,0 +1,20 @@
+#import 'fortnight/gql/fragments/email-placement/list'
+
+query EditEmailDeploymentPlacements($input: ModelIdInput!, $pagination: PaginationInput, $sort: EmailPlacementSortInput) {
+  emailDeployment(input: $input) {
+    id
+    placements(pagination: $pagination, sort: $sort) {
+      totalCount
+      edges {
+        node {
+          ...EmailPlacementListFragment
+        }
+        cursor
+      }
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+    }
+  }
+}
