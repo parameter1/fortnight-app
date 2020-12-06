@@ -4,6 +4,11 @@ fragment EmailPlacementEditFragment on EmailPlacement {
   emailDeployment {
     id
     name
+    fullName
+    publisher {
+      id
+      name
+    }
   }
   updatedAt
   updatedBy {
