@@ -53,12 +53,8 @@ export default Controller.extend(ActionMixin, {
           days,
         } = dates;
 
-        if (type === 'range') {
-          if (!start || !end) throw new Error('You must provide a start and end date.');
-        }
-        if (type === 'days') {
-          if (!Array.isArray(days) || !days.length) throw new Error('You must provide an array of days.');
-        }
+        if (type === 'range' && (!start || !end)) throw new Error('You must provide a start and end date.');
+        if (type === 'days' && (!Array.isArray(days) || !days.length)) throw new Error('You must provide an array of days.');
 
         const input = {
           name,
