@@ -1,10 +1,11 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
+import UTCDatesMixin from 'fortnight/mixins/utc-dates-mixin';
 import dayjs from 'fortnight/dayjs';
 
 const { isArray } = Array;
 
-export default Component.extend({
+export default Component.extend(UTCDatesMixin, {
   classNames: ['form-group'],
 
   start: null,
@@ -67,31 +68,6 @@ export default Component.extend({
     this.set('days', isArray(days) ? days : []);
     const type = this.get('type');
     this.set('type', type || 'days');
-  },
-
-  utcDateFromTimestamp(timestamp) {
-    const coverted = dayjs(timestamp).tz('UTC');
-    return coverted.$d;
-  },
-
-  utcDateFromDate(date) {
-    return new Date(Date.UTC(
-      date.getFullYear(),
-      date.getMonth(),
-      date.getDate(),
-    ));
-  },
-
-  utcEndDateFromDate(date) {
-    return new Date(Date.UTC(
-      date.getFullYear(),
-      date.getMonth(),
-      date.getDate(),
-      23,
-      59,
-      59,
-      999,
-    ));
   },
 
   actions: {
