@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
-import moment from 'moment';
+import dayjs from 'fortnight/dayjs';
 
 const { isArray } = Array;
 
@@ -12,25 +12,44 @@ export default Component.extend({
   days: null,
   type: null,
 
+  format: 'ddd MMM Do, YYYY',
+
   showDateRange: computed('type', function() {
     return this.get('type') === 'range';
   }),
 
   _days: computed('days.[]', function() {
-    return this.get('days').map(d => moment(d));
+    return this.get('days').map(timestamp => this.utcDateFromTimestamp(timestamp));
   }),
 
   _range: computed('start', 'end', function() {
     const start = this.get('start');
     const end = this.get('end');
     return {
-      start: start ? moment(start) : null,
-      end: end ? moment(end) : null,
+      start: start ? this.utcDateFromTimestamp(start) : null,
+      end: end ? this.utcDateFromTimestamp(end) : null,
     }
   }),
 
   daysSorted: computed('_days.[]', function() {
-    return this.get('days').sort();
+    return this.get('_days').sort((a, b) => {
+      if (a.valueOf() > b.valueOf()) return 1;
+      if (a.valueOf() < b.valueOf()) return -1;
+      return 0;
+    });
+  }),
+
+  formattedDays: computed('daysSorted.[]', function() {
+    return this.get('daysSorted').map(d => dayjs(d).format(this.format));
+  }),
+
+  formattedRange: computed('_range.{start,end}', function() {
+    const start = this.get('_range.start');
+    const end = this.get('_range.end');
+    return {
+      start: start ? dayjs(start).format(this.format) : null,
+      end: end ? dayjs(end).format(this.format) : null,
+    }
   }),
 
   isRangeSet: computed('start', 'end', function() {
@@ -50,6 +69,31 @@ export default Component.extend({
     this.set('type', type || 'days');
   },
 
+  utcDateFromTimestamp(timestamp) {
+    const coverted = dayjs(timestamp).tz('UTC');
+    return coverted.$d;
+  },
+
+  utcDateFromDate(date) {
+    return new Date(Date.UTC(
+      date.getFullYear(),
+      date.getMonth(),
+      date.getDate(),
+    ));
+  },
+
+  utcEndDateFromDate(date) {
+    return new Date(Date.UTC(
+      date.getFullYear(),
+      date.getMonth(),
+      date.getDate(),
+      23,
+      59,
+      59,
+      999,
+    ));
+  },
+
   actions: {
     setType(value) {
       this.set('type', value);
@@ -57,14 +101,14 @@ export default Component.extend({
     },
 
     setDays(value) {
-      this.get('on-days-change')(value.map(d => d.startOf('day').valueOf()));
+      this.get('on-days-change')(value.map(d => this.utcDateFromDate(d).valueOf()));
     },
 
     setRange(value) {
       const { start, end } = value;
       this.get('on-range-change')({
-        start: start ? start.startOf('day').valueOf() : null,
-        end: end ? end.endOf('day').valueOf() : null,
+        start: start ? this.utcDateFromDate(start).valueOf() : null,
+        end: end ? this.utcEndDateFromDate(end).valueOf() : null,
       });
     },
   },

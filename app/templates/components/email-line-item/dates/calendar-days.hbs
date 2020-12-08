@@ -1,8 +1,8 @@
 {{#power-calendar-multiple
   center=center
   selected=days
-  onCenterChange=(action (mut center) value="moment")
-  onSelect=(action onSelect value="moment")
+  onCenterChange=(action (mut center) value="date")
+  onSelect=(action onSelect value="date")
 as |calendar|
 }}
   {{calendar.nav}}
