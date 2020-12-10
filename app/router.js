@@ -30,6 +30,10 @@ Router.map(function() {
             this.route('image');
           });
         });
+        this.route('email-line-items', function() {
+          this.route('create');
+          this.route('edit', { path: ':line_item_id' });
+        });
         this.route('notifications');
       });
     });
@@ -55,7 +59,26 @@ Router.map(function() {
           this.route('create');
           this.route('edit', { path: ':placement_id' });
         });
+        this.route('email-deployments', function() {
+          this.route('create');
+          this.route('edit', { path: ':email_deployment_id' });
+        });
       });
+    });
+
+    this.route('email-deployment', function() {
+      this.route('create');
+      this.route('edit', { path: ':id' }, function() {
+        this.route('email-placements', function() {
+          this.route('create');
+          this.route('edit', { path: ':email_placement_id' });
+        });
+      });
+    });
+
+    this.route('email-placement', function() {
+      this.route('create');
+      this.route('edit', { path: ':id' });
     });
 
     this.route('story', function() {

@@ -1,0 +1,31 @@
+{{#nav-breadcrumbs as |crumbs|}}
+  {{#crumbs.item}}{{#link-to "manage.email-placement.index"}}{{entypo-icon "documents"}} Email Placements{{/link-to}}{{/crumbs.item}}
+  {{#crumbs.item active=true}}{{ model.name }} - {{model.emailDeployment.name}} -  {{model.emailDeployment.publisher.name}}{{/crumbs.item}}
+{{/nav-breadcrumbs}}
+
+<div class="card model-form">
+  <div class="card-header">
+  </div>
+
+  {{#model-form
+    model=model
+    shouldAutosave=true
+    onSubmit=(action "update") as |form|
+  }}
+
+    <div class="card-body">
+      {{ partial "manage/email-placement/form" }}
+    </div>
+    <div class="card-footer text-right">
+      <div class="btn-group">
+        {{confirm-button
+          icon="trash"
+          label="Delete"
+          class="btn-danger"
+          disabled=isActionRunning
+          onConfirm=(action "delete" model.id "manage.email-placement.index")
+        }}
+      </div>
+    </div>
+  {{/model-form}}
+</div>

@@ -1,0 +1,17 @@
+#import 'fortnight/gql/fragments/email-deployment/list'
+
+query AllEmailDeployments($pagination: PaginationInput, $sort: EmailDeploymentSortInput) {
+  allEmailDeployments(pagination: $pagination, sort: $sort) {
+    totalCount
+    edges {
+      node {
+        ...EmailDeploymentListFragment
+      }
+      cursor
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}

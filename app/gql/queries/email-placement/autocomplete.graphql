@@ -1,0 +1,17 @@
+#import 'fortnight/gql/fragments/email-placement/autocomplete'
+
+query AutocompleteEmailPlacements($pagination: PaginationInput, $phrase: String!) {
+  autocompleteEmailPlacements(pagination: $pagination, phrase: $phrase) {
+    totalCount
+    edges {
+      node {
+        ...EmailPlacementAutocompleteFragment
+      }
+      cursor
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}

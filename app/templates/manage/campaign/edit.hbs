@@ -1,6 +1,6 @@
 {{#nav-breadcrumbs as |crumbs|}}
   {{#crumbs.item}}{{#link-to "manage.campaign.index"}}{{entypo-icon "calendar"}} Campaigns{{/link-to}}{{/crumbs.item}}
-  {{#crumbs.item active=true}}{{model.name}} ({{#link-to "manage.advertiser.edit" model.advertiser.id}}{{model.advertiser.name}}{{/link-to}}) <span class="h4">[ {{campaign-status status=model.status}}]</span>{{/crumbs.item}}
+  {{#crumbs.item active=true}}{{model.name}} ({{#link-to "manage.advertiser.edit" model.advertiser.id}}{{model.advertiser.name}}{{/link-to}}) <span class="h4">[ Website Status: {{campaign-status status=model.status}}]</span>{{/crumbs.item}}
 {{/nav-breadcrumbs}}
 
 <div class="card model-form">
@@ -9,6 +9,7 @@
       <li class="nav-item">{{#link-to "manage.campaign.edit.index" model.id class="nav-link" role="tab"}}Details{{/link-to}}</li>
       <li class="nav-item">{{#link-to "manage.campaign.edit.criteria" model.id class="nav-link" role="tab"}}Criteria{{/link-to}}</li>
       <li class="nav-item">{{#link-to "manage.campaign.edit.creatives" model.id class="nav-link" role="tab"}}Creatives{{/link-to}}</li>
+      <li class="nav-item">{{#link-to "manage.campaign.edit.email-line-items" model.id class="nav-link" role="tab"}}Email Line Items{{/link-to}}</li>
       <li class="nav-item">{{#link-to "manage.campaign.edit.notifications" model.id class="nav-link" role="tab"}}Notifications{{/link-to}}</li>
     </ul>
   </div>

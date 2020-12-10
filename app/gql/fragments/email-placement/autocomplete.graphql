@@ -1,0 +1,4 @@
+fragment EmailPlacementAutocompleteFragment on EmailPlacement {
+  id
+  fullName
+}

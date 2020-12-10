@@ -15,6 +15,7 @@
 @import "ember-power-calendar";
 .ember-power-calendar {
   @include ember-power-calendar($cell-size: 30px);
+  min-height: 252px;
 }
 
 @import "spin";
@@ -73,6 +74,7 @@ form .progress {
 
 // Add depth to dropdowns
 .dropdown-menu {
+  min-width: 13rem;
   box-shadow: $z-depth-2;
   border: none !important;
 }

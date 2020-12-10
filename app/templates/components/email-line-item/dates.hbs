@@ -1,0 +1,47 @@
+<div class="form-group">
+  <label for="lineitem-dates">Dates {{required-field-label}}</label>
+  {{#form-elements/select
+    id="lineitem-dates"
+    class="custom-select"
+    name="dates"
+    value=type
+    on-change=(action "setType")
+  as |select|
+  }}
+    {{#each options as |option|}}
+      {{#select.option value=option.key}}
+        {{option.label}}
+      {{/select.option}}
+    {{/each}}
+  {{/form-elements/select}}
+</div>
+
+<div class="row">
+  <div class="col-xl-6">
+    {{#if showDateRange}}
+      {{email-line-item/dates/calendar-range
+        range=_range
+        timezone=timezone
+        onSelect=(action "setRange")
+      }}
+    {{else}}
+      {{email-line-item/dates/calendar-days
+        days=_days
+        timezone=timezone
+        onSelect=(action "setDays")
+      }}
+    {{/if}}
+  </div>
+  <div class="col-xl-6 text-left text-xl-right pt-2 pt-xl-0">
+    {{#if showDateRange}}
+      {{#if isRangeSet}}
+        <small class="d-block">Start: {{formattedRange.start}}</small>
+        <small class="d-block">End: {{formattedRange.end}}</small>
+      {{/if}}
+    {{else}}
+      {{#each formattedDays as |formatted|}}
+        <small class="d-block">{{formatted}}</small>
+      {{/each}}
+    {{/if}}
+  </div>
+</div>

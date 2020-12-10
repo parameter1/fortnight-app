@@ -1,0 +1,17 @@
+#import 'fortnight/gql/fragments/email-placement/list'
+
+query SearchEmailPlacements($pagination: PaginationInput, $phrase: String!) {
+  searchEmailPlacements(pagination: $pagination, phrase: $phrase) {
+    totalCount
+    edges {
+      node {
+        ...EmailPlacementListFragment
+      }
+      cursor
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}

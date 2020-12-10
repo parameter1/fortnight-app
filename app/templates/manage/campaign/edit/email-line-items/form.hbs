@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="email-line-item-name">Name {{required-field-label}}</label>
+      {{input
+        type="text"
+        required=true
+        value=form.model.name
+        class="form-control"
+        id="email-line-item-name"
+        placeholder="Name"
+        focusOut=(action form.actions.autosave)
+        keyUp=(action form.actions.autosave 750)
+      }}
+      <div class="invalid-feedback">
+        Please provide a line item name.
+      </div>
+      <small class="form-text text-muted">The email line item name.</small>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Email Placement {{required-field-label}}</label>
+      {{#type-ahead
+        required=true
+        placeholder="Begin typing to search..."
+        triggerClass="form-control"
+        dropdownClass="in-modal-dropdown"
+        wasFormValidated=form.wasValidated
+        invalidFeedback="Please select an email placement."
+        type="emailPlacement"
+        closeOnSelect=true
+        allowClear=false
+        onChange=(action form.actions.autosave)
+        selected=form.model.placement as |item|
+      }}
+        {{item.fullName}}
+      {{/type-ahead}}
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    {{email-line-item/dates
+      type=model.dates.type
+      start=model.dates.start
+      end=model.dates.end
+      days=model.dates.days
+      on-type-change=(action "setDateType")
+      on-days-change=(action "setDays")
+      on-range-change=(action "setRange")
+    }}
+  </div>
+</div>

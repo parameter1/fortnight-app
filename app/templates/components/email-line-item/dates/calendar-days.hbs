@@ -1,0 +1,10 @@
+{{#power-calendar-multiple
+  center=center
+  selected=days
+  onCenterChange=(action (mut center) value="date")
+  onSelect=(action onSelect value="date")
+as |calendar|
+}}
+  {{calendar.nav}}
+  {{calendar.days}}
+{{/power-calendar-multiple}}

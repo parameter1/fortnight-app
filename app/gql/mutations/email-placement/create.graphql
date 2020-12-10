@@ -1,0 +1,5 @@
+mutation CreateEmailPlacement($input: CreateEmailPlacementInput!) {
+  createEmailPlacement(input: $input) {
+    id
+  }
+}

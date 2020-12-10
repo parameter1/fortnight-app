@@ -1,0 +1,17 @@
+#import 'fortnight/gql/fragments/email-deployment/autocomplete'
+
+query AutocompleteEmailDeployments($pagination: PaginationInput, $phrase: String!) {
+  autocompleteEmailDeployments(pagination: $pagination, phrase: $phrase) {
+    totalCount
+    edges {
+      node {
+        ...EmailDeploymentAutocompleteFragment
+      }
+      cursor
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}

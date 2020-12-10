@@ -57,6 +57,22 @@ module.exports = function(defaults) {
     ]
   });
 
+  app.import('node_modules/dayjs/dayjs.min.js', {
+    using: [{ transformation: 'amd', as: 'dayjs' }]
+  });
+
+  app.import('node_modules/dayjs/plugin/advancedFormat.js', {
+    using: [{ transformation: 'amd', as: 'dayjs/plugin/advancedFormat' }]
+  });
+
+  app.import('node_modules/dayjs/plugin/timezone.js', {
+    using: [{ transformation: 'amd', as: 'dayjs/plugin/timezone' }]
+  });
+
+  app.import('node_modules/dayjs/plugin/utc.js', {
+    using: [{ transformation: 'amd', as: 'dayjs/plugin/utc' }]
+  });
+
   app.import('node_modules/highcharts/highcharts.js');
   app.import('node_modules/highcharts/modules/exporting.js');
 

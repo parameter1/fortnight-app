@@ -1,0 +1,21 @@
+{{#model-form
+  model=model
+  shouldAutosave=true
+  onSubmit=(action "update") as |form|
+}}
+
+  <div class="card-body">
+    {{ partial "manage/email-deployment/form" }}
+  </div>
+  <div class="card-footer text-right">
+    <div class="btn-group">
+      {{confirm-button
+        icon="trash"
+        label="Delete"
+        class="btn-danger"
+        disabled=isActionRunning
+        onConfirm=(action "delete" model.id "manage.email-deployment.index")
+      }}
+    </div>
+  </div>
+{{/model-form}}

@@ -7,6 +7,8 @@ import ComponentQueryManager from 'ember-apollo-client/mixins/component-query-ma
 import autocompletePublishers from 'fortnight/gql/queries/publisher/autocomplete';
 import autocompleteAdvertisers from 'fortnight/gql/queries/autocomplete-advertisers';
 import autocompleteContacts from 'fortnight/gql/queries/autocomplete-contacts';
+import autocompleteEmailDeployments from 'fortnight/gql/queries/email-deployment/autocomplete';
+import autocompleteEmailPlacements from 'fortnight/gql/queries/email-placement/autocomplete';
 import autocompletePlacements from 'fortnight/gql/queries/autocomplete-placements';
 import autocompleteTemplates from 'fortnight/gql/queries/template/autocomplete';
 import autocompleteStories from 'fortnight/gql/queries/story/autocomplete';
@@ -60,6 +62,10 @@ export default Component.extend(ComponentQueryManager, {
         return { query: autocompleteAdvertisers, resultKey: 'autocompleteAdvertisers' };
       case 'contact':
         return { query: autocompleteContacts, resultKey: 'autocompleteContacts' };
+      case 'emailDeployment':
+        return { query: autocompleteEmailDeployments, resultKey: 'autocompleteEmailDeployments' };
+      case 'emailPlacement':
+        return { query: autocompleteEmailPlacements, resultKey: 'autocompleteEmailPlacements' };
       case 'placement':
         return { query: autocompletePlacements, resultKey: 'autocompletePlacements' };
       case 'template':

@@ -1,0 +1,24 @@
+fragment EmailPlacementListFragment on EmailPlacement {
+  id
+  name
+  emailDeployment {
+    id
+    name
+    publisher {
+      id
+      name
+    }
+  }
+  createdBy {
+    id
+    givenName
+    familyName
+  }
+  updatedBy {
+    id
+    givenName
+    familyName
+  }
+  createdAt
+  updatedAt
+}

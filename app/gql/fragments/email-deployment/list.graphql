@@ -1,0 +1,23 @@
+fragment EmailDeploymentListFragment on EmailDeployment {
+  id
+  name
+  publisher {
+    id
+    name
+  }
+  placements(pagination: { first: 1 }, sort: { field: createdAt, order: 1 }) {
+    totalCount
+  }
+  createdBy {
+    id
+    givenName
+    familyName
+  }
+  updatedBy {
+    id
+    givenName
+    familyName
+  }
+  createdAt
+  updatedAt
+}

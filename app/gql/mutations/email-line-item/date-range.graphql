@@ -1,0 +1,13 @@
+mutation EmailLineItemDateRange($input: EmailLineItemDateRangeMutationInput!) {
+  emailLineItemDateRange(input: $input) {
+    id
+    status
+    requires
+    dates {
+      type
+      start
+      end
+      days
+    }
+  }
+}

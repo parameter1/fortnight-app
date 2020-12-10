@@ -1,0 +1,4 @@
+fragment EmailDeploymentAutocompleteFragment on EmailDeployment {
+  id
+  fullName
+}
