@@ -77,7 +77,7 @@ export default Service.extend(ObjectQueryManager, {
       publisherId: get(publisher || {}, 'id'),
       templateId: get(template || {}, 'id'),
       topicId: get(topic || {}, 'id'),
-      reservePct: reservePct || 0,
+      reservePct: reservePct || null,
     };
   },
 });
