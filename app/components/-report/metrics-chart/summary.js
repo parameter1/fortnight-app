@@ -25,7 +25,7 @@ export default Component.extend(InitValueMixin, {
     this.initValue('rows', []);
   },
 
-  metrics: computed('options', 'rows', function() {
+  metrics: computed('options.[]', 'rows.[]', function() {
     return this.options.map((opt) => ({
       label: opt.label,
       total: this.rows.reduce((sum, { metrics }) => sum += metrics[opt.key] || 0, 0),
