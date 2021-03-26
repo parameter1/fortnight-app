@@ -1,0 +1,5 @@
+{{#each metrics as |metric|}}
+  <span class="text-nowrap pr-4" title="{{ metric.total }}">
+    {{metric.label}}: {{number-format metric.total "0.[00]a"}}
+  </span>
+{{/each}}
