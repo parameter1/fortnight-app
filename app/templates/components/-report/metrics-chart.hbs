@@ -17,15 +17,6 @@
       }}
     </div>
   </div>
-  <div class="row mt-4 pt-4 border-top">
-    <div class="col">
-      {{-report/metrics-chart/summary
-        options=metricOptions
-        rows=rows
-        class="text-center"
-      }}
-    </div>
-  </div>
 </div>
 {{progress-bar show=isLoading}}
 <div class="card-body">
@@ -42,3 +33,9 @@
     </div>
   </div>
 </div>
+
+{{-report/metrics-chart/summary
+  options=metricOptions
+  rows=rows
+  class="card-body border-top"
+}}

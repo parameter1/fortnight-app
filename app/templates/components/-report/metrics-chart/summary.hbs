@@ -1,5 +1,14 @@
-{{#each metrics as |metric|}}
-  <div class="btn btn-text disabled" title="{{ metric.total }}">
-    {{metric.label}}: {{number-format metric.total "0.[00]a"}}
+<div class="row">
+  <div class="col">
+    Metric totals
   </div>
-{{/each}}
+  <div class="col">
+    <div class="row">
+      {{#each metrics as |metric|}}
+        <div class="col text-nowrap" title="{{ metric.total }}">
+          {{metric.label}}: {{number-format metric.total "0.[00]a"}}
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
