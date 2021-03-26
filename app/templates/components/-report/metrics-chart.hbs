@@ -1,6 +1,6 @@
 <div class="card-body">
   <div class="row">
-    <div class="col col-md-2 col-lg-3">
+    <div class="col">
       {{-report/metrics-chart/metric-selector
         selected=selectedMetric
         options=metricOptions
@@ -8,19 +8,21 @@
         onchange=(action "setMetric")
       }}
     </div>
-    <div class="col col-12 col-md-6">
-      {{-report/metrics-chart/summary
-        options=metricOptions
-        rows=rows
-        class="text-center"
-      }}
-    </div>
-    <div class="col col-md-4 col-lg-3">
+    <div class="col">
       {{-report/metrics-chart/date-selector
         class="float-right"
         disabled=isLoading
         range=(hash start=startDate end=endDate)
         onchange=(action "setDates")
+      }}
+    </div>
+  </div>
+  <div class="row mt-4 pt-4 border-top">
+    <div class="col">
+      {{-report/metrics-chart/summary
+        options=metricOptions
+        rows=rows
+        class="text-center"
       }}
     </div>
   </div>
