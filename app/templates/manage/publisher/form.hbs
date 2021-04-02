@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col">
+  <div class="col col-12 col-md-6">
     <div class="form-group">
       <label for="publisher-name">Name {{required-field-label}}</label>
       {{input
@@ -17,11 +17,9 @@
       </div>
     </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col">
-    <div class="form-group mb-0">
+  <div class="col col-12 col-md-6">
+    <div class="form-group">
       <label for="publisher-website">Website {{required-field-label}}</label>
       {{input
         type="url"
@@ -42,8 +40,8 @@
 
 {{#if model.id}}
   <div class="row">
-    <div class="col">
-      <div class="form-group mt-3">
+    <div class="col col-12 col-md-6">
+      <div class="form-group">
         <label for="publisher-domain-name">Custom Domain Name</label>
         {{input
           type="text"
@@ -60,6 +58,27 @@
         </div>
         <small id="publisher-domain-name-help" class="form-text text-muted">
           A custom domain where your story content will be served. Must be configured by NativeX support.
+        </small>
+      </div>
+    </div>
+    <div class="col col-12 col-md-6">
+      <div class="form-group">
+        <label for="publisher-story-path">Custom Story Path</label>
+        {{input
+          type="text"
+          value=form.model.storyPath
+          class="form-control"
+          disabled=true
+          id="publisher-story-path"
+          aria-describedby="publisher-story-path-help"
+          focusOut=(action form.actions.autosave)
+          keyUp=(action form.actions.autosave 750)
+        }}
+        <div class="invalid-feedback">
+          The provided story path is invalid.
+        </div>
+        <small id="publisher-story-path-help" class="form-text text-muted">
+          A custom path where your story content will be served. Must be configured by NativeX support.
         </small>
       </div>
     </div>
