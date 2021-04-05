@@ -7,6 +7,7 @@ fragment PublisherEditFragment on Publisher {
   createdAt
   updatedAt
   domainName
+  storyPath
   logo {
     ...ImageSrcFragment
   }
