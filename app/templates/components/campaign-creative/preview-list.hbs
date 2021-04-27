@@ -4,6 +4,9 @@
   </div>
   <div class="col-7">
     <h5 class="font-weight-bold">{{ creative.title }}</h5>
+    {{#if creative.linkText}}
+      <p><button class="btn btn-sm btn-primary" type="button">{{ creative.linkText }}</button></p>
+    {{/if}}
     <p><strong>Sponsored</strong> - {{moment-format campaign.criteria.start "MMM DD, YYYY"}}</p>
   </div>
 </div>
