@@ -5,6 +5,9 @@
 {{#if creative.teaser}}
 <p>{{ creative.teaser }}</p>
 {{/if}}
+{{#if creative.linkText}}
+<p><button class="btn btn-primary" type="button">{{ creative.linkText }}</button></p>
+{{/if}}
 {{#if campaign.criteria.start}}
   <p class="mb-0">
     <strong>Sponsored</strong> - {{moment-format campaign.criteria.start "MMM DD, YYYY"}}
