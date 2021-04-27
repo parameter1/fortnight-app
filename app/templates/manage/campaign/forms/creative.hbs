@@ -26,7 +26,7 @@
 
 <div class="row">
   <div class="col">
-    <div class="form-group mb-0">
+    <div class="form-group">
       <label for="creative-teaser">Teaser {{required-field-label}}</label>
       {{character-count value=form.model.teaser maxLength=255}}
       {{textarea
@@ -46,6 +46,30 @@
       </div>
       <small id={{concat "teaserHelp." index}} class="form-text text-muted">
         A short description for your link. This must be at least 40 characters long and no longer than 255.
+      </small>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <div class="form-group mb-0">
+      <label for="creative-link-text">Link Text</label>
+      {{character-count value=form.model.linkText maxLength=32}}
+      {{input
+        id="creative-link-text"
+        class="form-control"
+        maxlength=32
+        required=false
+        value=form.model.linkText
+        focusOut=(action form.actions.autosave)
+        keyUp=(action form.actions.autosave 750)
+      }}
+      <div class="invalid-feedback">
+        Please provide link text that is no longer than 32 characters.
+      </div>
+      <small id={{concat "link-textHelp." index}} class="form-text text-muted">
+        Call to action text. This is <em>only</em> used in email campaigns.
       </small>
     </div>
   </div>
