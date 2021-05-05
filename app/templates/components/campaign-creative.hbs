@@ -20,6 +20,10 @@
     <p class="card-text">{{teaser}}</p>
   {{/if}}
 
+  {{#if linkText}}
+    <p class="card-text"><span class="text-muted">Link Text:</span> {{linkText}}</p>
+  {{/if}}
+
 </div>
 <div class="card-footer d-flex justify-content-between">
   {{#if displayEditButton}}

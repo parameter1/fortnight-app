@@ -56,12 +56,22 @@ export default Controller.extend(ActionMixin, {
      *
      * @param {object} fields
      */
-    async updateDetails({ title, teaser, active }) {
+    async updateDetails({
+      title,
+      teaser,
+      linkText,
+      active,
+    } = {}) {
       this.startAction();
 
       const creativeId = this.get('model.id');
       const campaignId = this.get('campaignId');
-      const payload = { title, teaser, active };
+      const payload = {
+        title,
+        teaser,
+        linkText,
+        active,
+      };
 
       const mutation = campaignCreativeDetails;
       const input = { creativeId, campaignId, payload }
