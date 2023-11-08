@@ -6,7 +6,7 @@ query StoryMetrics($input: ModelIdInput!) {
       pageviews
       shares
       avgTimeOnPage
-      timeOnPage
+      # timeOnPage
     }
   }
 }
