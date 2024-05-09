@@ -2,6 +2,7 @@
 #import 'fortnight/gql/fragments/user'
 
 fragment AuthenticationFragment on Authentication {
+  locked
   session {
     ...SessionFragment
   }
